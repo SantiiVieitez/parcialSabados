@@ -1,7 +1,7 @@
 :root {
-  --color-principal: #116530;     /* Verde institucional */
-  --color-secundario: #0e8c42;    /* Verde más oscuro */
-  --color-acento: #66bb6a;        /* Verde claro para botones/enlaces */
+  --color-principal: #116530;
+  --color-secundario: #0e8c42;
+  --color-acento: #66bb6a;
 }
 
 * {
@@ -11,14 +11,16 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   color: #1a1a1a;
+  background: #fff;
 }
 
+/* HEADER */
 header {
   background: white;
   padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -53,8 +55,35 @@ nav {
   color: var(--color-acento);
 }
 
+#toggle-tema {
+  background: none;
+  border: 1px solid var(--color-principal);
+  color: var(--color-principal);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+#toggle-tema:hover {
+  background: var(--color-principal);
+  color: white;
+}
+
+body.oscuro #toggle-tema {
+  border-color: var(--color-acento);
+  color: var(--color-acento);
+}
+
+body.oscuro #toggle-tema:hover {
+  background: var(--color-acento);
+  color: #121212;
+}
+
+/* HERO */
 .hero {
-  background: url('hero.jpg') center/cover no-repeat;
+  background: url("hero.jpg") center / cover no-repeat;
   height: 80vh;
   display: flex;
   align-items: center;
@@ -63,7 +92,7 @@ nav {
 }
 
 .hero-content {
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 2rem;
   max-width: 600px;
 }
@@ -137,7 +166,7 @@ nav {
   border-left: 4px solid var(--color-principal);
   padding: 1rem;
   width: 280px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 }
 
@@ -192,7 +221,7 @@ form button:hover {
 
 /* Página Nosotros */
 .hero-nosotros {
-  background: url('hero.jpg') center/cover no-repeat;
+  background: url("hero.jpg") center / cover no-repeat;
   height: 60vh;
   width: 100%;
 }
@@ -213,6 +242,10 @@ form button:hover {
   gap: 2rem;
   align-items: center;
   border-radius: 8px;
+}
+
+body.oscuro .quienes-somos-section {
+  background-color: #3a3a3a;
 }
 
 .quienes-somos-texto {
@@ -236,11 +269,12 @@ form button:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Encabezado Servicios */
-.servicios-encabezado {
+/* Servicios y Sectores */
+.servicios-encabezado,
+.sectores-encabezado {
   background-color: var(--color-principal);
   color: white;
-  padding: 5rem 2rem 8rem 2rem; /* igual que sectores */
+  padding: 5rem 2rem 8rem 2rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -250,7 +284,8 @@ form button:hover {
   z-index: 1;
 }
 
-.servicios-tarjetas {
+.servicios-tarjetas,
+.sectores-tarjetas {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
@@ -268,26 +303,28 @@ form button:hover {
   box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.08);
 }
 
-.servicios-tarjetas .card {
+.servicios-tarjetas .card,
+.sectores-tarjetas .card {
   background-color: #f9f9f9;
   width: 280px;
   padding: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-left: 4px solid var(--color-principal);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.servicios-tarjetas .card h3 {
+.servicios-tarjetas .card h3,
+.sectores-tarjetas .card h3 {
   color: var(--color-principal);
   margin-bottom: 1rem;
 }
 
-.servicios-tarjetas .card p {
+.servicios-tarjetas .card p,
+.sectores-tarjetas .card p {
   font-size: 0.95rem;
   line-height: 1.5;
-  margin-bottom: 1rem;
 }
 
 .servicios-tarjetas .card a {
@@ -300,69 +337,9 @@ form button:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-  .servicios-tarjetas {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-/* Encabezado Sectores */
-.sectores-encabezado {
-  background-color: var(--color-principal);
-  color: white;
-  padding: 5rem 2rem 8rem 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 300px;
-  position: relative;
-  z-index: 1;
-}
-
-/* Tarjetas Sectores */
-.sectores-tarjetas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  background: white;
-  padding: 4rem 2rem;
-  margin-top: -80px;
-  z-index: 2;
-  position: relative;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 0 0 8px 8px;
-  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.08);
-  margin-bottom: 4rem;
-}
-
-.sectores-tarjetas .card {
-  background-color: #f9f9f9;
-  width: 280px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  border-left: 4px solid var(--color-principal);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.sectores-tarjetas .card h3 {
-  color: var(--color-principal);
-  margin-bottom: 1rem;
-}
-
-.sectores-tarjetas .card p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
+/* Contacto */
 .contacto-section {
-  background-color: #f4fdf7; /* Fondo verde claro suave */
+  background-color: #f4fdf7;
   padding: 4rem 2rem;
   min-height: 100vh;
 }
@@ -391,6 +368,10 @@ form button:hover {
 .contacto-container form label {
   font-weight: 500;
   color: #333;
+}
+
+body.oscuro .contacto-container form label {
+  color: #fff;
 }
 
 .contacto-container form input,
@@ -422,4 +403,91 @@ form button:hover {
   margin-top: 2rem;
   font-size: 0.95rem;
   color: #444;
+}
+
+/* 🌙 TEMA OSCURO */
+body.oscuro {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+body.oscuro header {
+  background-color: #1e1e1e;
+}
+
+body.oscuro .logo {
+  border-color: var(--color-acento);
+  color: var(--color-acento);
+}
+
+body.oscuro .nav-links li a {
+  color: #ddd;
+}
+
+body.oscuro .nav-links li a:hover,
+body.oscuro .nav-links li a.active {
+  color: var(--color-acento);
+}
+
+body.oscuro .hero-content {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+body.oscuro .btn {
+  background-color: var(--color-acento);
+}
+
+body.oscuro .btn:hover {
+  background-color: #57a05a;
+}
+
+body.oscuro .card {
+  background-color: #222;
+  color: #f5f5f5;
+}
+
+body.oscuro .card h3 {
+  color: var(--color-acento);
+}
+
+body.oscuro .contacto-section {
+  background-color: #2b2b2b;
+}
+
+body.oscuro .contacto-container {
+  background-color: #2c2c2c;
+  color: #f5f5f5;
+}
+
+body.oscuro .contacto-container form input,
+body.oscuro .contacto-container form textarea {
+  background-color: #3a3a3a;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body.oscuro .contacto-container form button {
+  background-color: var(--color-secundario);
+  color: #fff;
+}
+
+body.oscuro .contacto-container form button:hover {
+  background-color: var(--color-acento);
+}
+
+body.oscuro .contacto-info {
+  color: #ccc;
+}
+
+body.oscuro .contacto-container,
+body.oscuro .quienes-somos-box,
+body.oscuro .servicios-tarjetas,
+body.oscuro .sectores-tarjetas {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.oscuro .quienes-somos-section {
+  background-color: #3a3a3a;
 }
